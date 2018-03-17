@@ -18,10 +18,6 @@ app.use((req, res, next) => {
 	});
 	next();
 });
-app.use((req, res, next) => {
-	res.render('maintenance.hbs');
-});
-
 app.get('/', (req, res) => {
 	res.render('home.hbs', {
 		pageTitle: 'Home',
@@ -33,6 +29,14 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
 	res.render('about.hbs', {
 		pageTitle: 'About',
+		date: new Date().getFullYear()
+	});
+});
+
+app.get('/portfolio', (req, res) => {
+	res.render('portfolio.hbs', {
+		pageTitle: 'Portfolio',
+          portfolio: 'A lot of things ... ',
 		date: new Date().getFullYear()
 	});
 });
